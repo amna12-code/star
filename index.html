@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ✨</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(to bottom,#0f172a,#1e293b,#334155);
+font-family:Georgia,serif;
+}
+
+.star{
+font-size:120px;
+cursor:pointer;
+animation:glow 2s infinite alternate;
+z-index:10;
+}
+
+.text{
+position:absolute;
+margin-top:180px;
+color:white;
+font-size:22px;
+}
+
+.message{
+display:none;
+position:absolute;
+background:rgba(255,255,255,.95);
+padding:40px;
+border-radius:25px;
+max-width:500px;
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,.25);
+animation:fade 1.5s ease;
+}
+
+.message h1{
+color:#d97706;
+margin-bottom:20px;
+font-size:36px;
+}
+
+.message p{
+font-size:22px;
+line-height:1.8;
+color:#444;
+}
+
+.twinkle{
+position:absolute;
+color:white;
+animation:twinkle linear infinite;
+}
+
+@keyframes twinkle{
+0%{opacity:0}
+50%{opacity:1}
+100%{opacity:0}
+}
+
+@keyframes glow{
+from{
+filter:drop-shadow(0 0 10px gold);
+}
+to{
+filter:drop-shadow(0 0 30px gold);
+}
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:scale(.8);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="star" onclick="openCard()">⭐</div>
+
+<div class="text">
+Click the star ✨
+</div>
+
+<div class="message" id="card">
+
+<h1>For You ❤️</h1>
+
+<p>
+In a world full of people,<br><br>
+
+I'm grateful our paths crossed.<br><br>
+
+You are truly special. ✨🌷
+</p>
+
+</div>
+
+<script>
+
+for(let i=0;i<80;i++){
+
+let star=document.createElement("div");
+
+star.className="twinkle";
+
+star.innerHTML="✦";
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+
+star.style.fontSize=(Math.random()*20+8)+"px";
+
+star.style.animationDuration=(Math.random()*4+2)+"s";
+
+document.body.appendChild(star);
+}
+
+function openCard(){
+
+document.querySelector(".star").style.display="none";
+document.querySelector(".text").style.display="none";
+
+document.getElementById("card").style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
